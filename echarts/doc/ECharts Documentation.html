@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<!-- saved from url=(0106)http://echarts.baidu.com/tutorial.html#%E4%BD%BF%E7%94%A8%20dataset%20%E7%AE%A1%E7%90%86%E6%95%B0%E6%8D%AE -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1" user-scalable="no"><meta name="description" content="ECharts, a powerful, interactive charting and visualization library for browser"><link rel="shortcut icon" href="http://echarts.baidu.com/images/favicon.png"><link rel="stylesheet" type="text/css" href="./ECharts Documentation_files/bootstrap.min.css"><!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries--><!--[if lt IE 9]><script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]--><link rel="stylesheet" type="text/css" href="./ECharts Documentation_files/main.css"><script src="./ECharts Documentation_files/hm.js.下载"></script><script type="text/javascript" src="./ECharts Documentation_files/pace.min.js.下载"></script><style>@font-face {font-family:"noto-thin";src:local("Microsoft Yahei");}@font-face {font-family:"noto-light";src:local("Microsoft Yahei");}</style><script id="font-hack" type="text/javascript">if (/windows/i.test(navigator.userAgent)) {
+    var el = document.createElement('style');
+    el.innerHTML = ''
+        + '@font-face {font-family:"noto-thin";src:local("Microsoft Yahei");}'
+        + '@font-face {font-family:"noto-light";src:local("Microsoft Yahei");}';
+    document.head.insertBefore(el, document.getElementById('font-hack'));
+}
+</script><title>ECharts Documentation</title><link rel="stylesheet" type="text/css" href="./ECharts Documentation_files/ecOption.css"><link rel="stylesheet" type="text/css" href="./ECharts Documentation_files/prettify.css"><link rel="stylesheet" type="text/css" href="./ECharts Documentation_files/perfect-scrollbar.min.css"><link rel="stylesheet" type="text/css" href="./ECharts Documentation_files/jquery.auto-complete.css"><link rel="stylesheet" type="text/css" href="./ECharts Documentation_files/twentytwenty.css"><script src="./ECharts Documentation_files/log.js.下载"></script><script src="./ECharts Documentation_files/prettify.js.下载"></script><script src="./ECharts Documentation_files/lang-css.js.下载"></script><script src="./ECharts Documentation_files/esl.js.下载"></script><script type="text/javascript" src="./ECharts Documentation_files/jquery.min.js.下载"></script><script data-require-id="docTool/main" src="./ECharts Documentation_files/main.js.下载" async=""></script></head><!--[if lte IE 8]><body class="lower-ie"><div id="lowie-main"><img src="./images/forie.png" alt="ie tip"></div></body><![endif]-->
+<!--[if (gt IE 8)|!(IE)]><body class="undefined"></body><![endif]--><body class="  pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div><div id="main" class="tutorial"><nav class="navbar navbar-default navbar-fixed-top"><div class="container-fluid"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="http://echarts.baidu.com/index.html" class="navbar-brand"><img src="./ECharts Documentation_files/logo.png" alt="echarts logo" class="navbar-logo"></a></div><div id="navbar-collapse" class="collapse navbar-collapse"><ul class="nav navbar-nav navbar-left"><li id="nav-index"><a href="http://echarts.baidu.com/index.html">首页</a></li><li id="nav-doc" class="active"><a href="http://echarts.baidu.com/tutorial.html#" data-toggle="dropdown" class="dropdown-toggle">文档<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="http://echarts.baidu.com/feature.html">特性</a></li><li><a href="http://echarts.baidu.com/tutorial.html">教程</a></li><li><a href="http://echarts.baidu.com/api.html">API</a></li><li><a href="http://echarts.baidu.com/option.html">配置项手册</a></li><li><a href="http://echarts.baidu.com/option-gl.html">GL 配置项手册</a></li><li><a href="http://echarts.baidu.com/faq.html">常见问题</a></li><li><a href="http://echarts.baidu.com/changelog.html">版本记录</a></li></ul></li><li id="nav-download" class="dropdown"><a href="http://echarts.baidu.com/tutorial.html#" data-toggle="dropdown" class="dropdown-toggle">下载<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="http://echarts.baidu.com/download.html">下载</a></li><li><a href="http://echarts.baidu.com/download-theme.html">主题下载</a></li><li><a href="http://echarts.baidu.com/download-map.html">地图下载</a></li><li><a href="http://echarts.baidu.com/download-extension.html">扩展下载</a></li></ul></li><li id="nav-examples"><a href="http://echarts.baidu.com/tutorial.html#" data-toggle="dropdown" class="dropdown-toggle">实例<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="http://echarts.baidu.com/examples/">官方实例</a></li><li><a href="http://echarts.baidu.com/examples/index.html#chart-type-globe">GL 实例</a></li></ul></li><li id="nav-community"><a href="http://echarts.baidu.com/tutorial.html#" data-toggle="dropdown" class="dropdown-toggle">社区<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="http://gallery.echartsjs.com/">GALLERY</a></li><li><a href="http://efe.baidu.com/tags/ECharts/">博客</a></li></ul></li><li id="nav-tool"><a href="http://echarts.baidu.com/tutorial.html#" data-toggle="dropdown" class="dropdown-toggle">工具<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="http://echarts.baidu.com/spreadsheet.html">表格工具</a></li><li><a href="http://ecomfe.github.io/echarts-map-tool/">地图数据在线工具</a></li><li><a href="http://echarts.baidu.com/theme-builder/">主题构建工具</a></li></ul></li><li id="nav-about"><a href="http://echarts.baidu.com/tutorial.html#" data-toggle="dropdown" class="dropdown-toggle">关于<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="http://echarts.baidu.com/about.html">关于我们</a></li><li><a href="https://github.com/ecomfe/echarts/blob/master/LICENSE">版权声明</a></li></ul></li></ul><ul class="nav navbar-nav navbar-right"><li id="nav-github"><a href="https://github.com/ecomfe/echarts" target="_blank"><img src="./ECharts Documentation_files/github.png" width="18"></a></li><li id="nav-2" class="0"><a href="http://echarts.baidu.com/echarts2/">2.0</a></li><li id="nav-homeen"><a href="https://ecomfe.github.io/echarts-doc/public/en/index.html">EN</a></li></ul></div></div></nav><div class="ecdoc-apidoc dtui-cpt">
+<div class="ecdoc-api-left-area">
+
+    <div class="ecdoc-quick-link"><span>教程</span><a href="http://echarts.baidu.com/api.html">API</a><a href="http://echarts.baidu.com/option.html">配置项</a><a href="http://echarts.baidu.com/option-gl.html">GL</a></div>
+
+    <div class="ecdoc-api-query-box">
+        <div data-cpt="
+            type: &#39;TextInput&#39;,
+            name: &#39;queryInput&#39;,
+            viewModel: {
+                mouseEnterSelect: true,
+                confirmPoint: {blur: false, pressEnter: true}
+            }" class="dtui-cpt dtui-txipt dtui-cpt-type-text dtui-txipt-type-text"><input type="text" placeholder="教程名称搜索（快捷键&#39;/&#39;）" autocomplete="off"><span class="dtui-cpt-alert-mark dtui-txipt-alert-mark" style="display:none"></span><span class="dtui-cpt-alert-text dtui-txipt-alert-text" style="display:none"></span></div>
+        <div data-cpt="
+            type: &#39;CheckButton&#39;,
+            name: &#39;queryMode&#39;,
+            viewModel: {
+                css: &#39;query-mode&#39;,
+                checked: lib.ob(&#39;fuzzyPath&#39;),
+                dataList: [
+                    {
+                        value: &#39;fuzzyPath&#39;,
+                        placeholder: lang.queryBoxPlaceholderFuzzyPath,
+                        text: lang.queryBoxTextFuzzyPath
+                    },
+                    {
+                        value: &#39;anyText&#39;,
+                        placeholder: lang.queryBoxPlaceholderAnyText,
+                        text: lang.queryBoxTextAnyText
+                    }
+                ]
+            }" class="dtui-cpt dtui-chkbtn query-mode"><span class="dtui-chkbtn-i dtui-chkbtn-i-active" data-value-index="0">教程搜索</span><span class="dtui-chkbtn-i" data-value-index="1">全文搜索</span></div>
+        <div data-cpt="
+            type: &#39;Button&#39;,
+            name: &#39;collapseAll&#39;,
+            text: lang.collapseAll,
+            css: &#39;collapse-all&#39;" class="dtui-cpt dtui-btn collapse-all">折叠</div>
+        <span class="query-result-info"></span>
+    </div>
+
+    <div class="ecdoc-api-tree-area ps-container" data-ps-id="36d6dabe-a96c-cae5-e2e3-1dea9908190f">
+        <div class="ecdoc-api-tree dtui-cpt dtui-treelist" data-cpt="
+            type: &#39;TreeList&#39;,
+            name: &#39;apiDocTree&#39;,
+            viewModel: {
+                selected: viewModel.apiTreeSelected,
+                highlighted: viewModel.apiTreeHighlighted,
+                hovered: viewModel.apiTreeHovered,
+                datasource: viewModel.apiTreeDatasource,
+                resizeEvent: viewModel.apiTreeResize
+            }"><ul class="dtui-treelist-list" style=""><li class="dtui-treelist-i " data-item-path="0" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="0"><span class="ecdoc-api-tree-text-prop">5 分钟上手 ECharts</span></span></li><li class="dtui-treelist-i " data-item-path="1" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="1"><span class="ecdoc-api-tree-text-prop">自定义构建 ECharts</span></span></li><li class="dtui-treelist-i " data-item-path="2" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="2"><span class="ecdoc-api-tree-text-prop">在 webpack 中使用 ECharts</span></span></li><li class="dtui-treelist-i " data-item-path="3" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="3"><span class="ecdoc-api-tree-text-prop">个性化图表的样式</span></span></li><li class="dtui-treelist-i " data-item-path="4" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="4"><span class="ecdoc-api-tree-text-prop">ECharts 中的样式简介</span></span></li><li class="dtui-treelist-i " data-item-path="5" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="5"><span class="ecdoc-api-tree-text-prop">异步数据加载和更新</span></span></li><li class="dtui-treelist-i " data-item-path="6" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text dtui-treelist-text-active" data-item-path="6"><span class="ecdoc-api-tree-text-prop">使用 dataset 管理数据</span></span></li><li class="dtui-treelist-i " data-item-path="7" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="7"><span class="ecdoc-api-tree-text-prop">在图表中加入交互组件</span></span></li><li class="dtui-treelist-i " data-item-path="8" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="8"><span class="ecdoc-api-tree-text-prop">移动端自适应</span></span></li><li class="dtui-treelist-i " data-item-path="9" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="9"><span class="ecdoc-api-tree-text-prop">数据的视觉映射</span></span></li><li class="dtui-treelist-i " data-item-path="10" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="10"><span class="ecdoc-api-tree-text-prop">ECharts 中的事件和行为</span></span></li><li class="dtui-treelist-i " data-item-path="11" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="11"><span class="ecdoc-api-tree-text-prop">小例子：自己实现拖拽</span></span></li><li class="dtui-treelist-i " data-item-path="12" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="12"><span class="ecdoc-api-tree-text-prop">小例子：实现日历图</span></span></li><li class="dtui-treelist-i " data-item-path="13" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="13"><span class="ecdoc-api-tree-text-prop">旭日图</span></span></li><li class="dtui-treelist-i " data-item-path="14" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="14"><span class="ecdoc-api-tree-text-prop">自定义系列</span></span></li><li class="dtui-treelist-i " data-item-path="15" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="15"><span class="ecdoc-api-tree-text-prop">富文本标签</span></span></li><li class="dtui-treelist-i " data-item-path="16" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="16"><span class="ecdoc-api-tree-text-prop">使用 Canvas 或者 SVG 渲染</span></span></li><li class="dtui-treelist-i " data-item-path="17" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="17"><span class="ecdoc-api-tree-text-prop">在图表中支持无障碍访问</span></span></li><li class="dtui-treelist-i " data-item-path="18" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="18"><span class="ecdoc-api-tree-text-prop">使用 ECharts GL 实现基础的三维可视化</span></span></li><li class="dtui-treelist-i " data-item-path="19" data-item-level="0" data-item-encode-html="0"><i class="dtui-treelist-thumb"></i> <span class="dtui-treelist-text" data-item-path="19"><span class="ecdoc-api-tree-text-prop">在微信小程序中使用 ECharts</span></span></li></ul></div>
+    <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+
+</div>
+
+<div class="ecdoc-api-right-area">
+    <div class="ecdoc-api-doc-group-area ps-container ps-active-y" data-ps-id="21df5854-cd3c-df7c-36cc-f1db118602bf">
+        <div class="ecdoc-api-doc-group-content">
+<div class="ecdoc-api-doc-group-title"><strong>使用 dataset 管理数据</strong></div>
+<div class="ecdoc-api-doc-group-title-desc">
+    <p>ECharts 4 开始支持了 <code>dataset</code> 组件用于单独的数据集声明，从而数据可以单独管理，被多个组件复用，并且可以基于数据指定数据到视觉的映射。这在不少场景下能带来使用上的方便。</p>
+<p>ECharts 4 以前，数据只能声明在各个“系列（series）”中，例如：</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="pln">option</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    xAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'category'</span><span class="pun">,</span><span class="pln">
+        data</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'Matcha Latte'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Milk Tea'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Cheese Cocoa'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Walnut Brownie'</span><span class="pun">]</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    yAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{}</span><span class="pln">
+    series</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">
+            type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln">
+            name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'2015'</span><span class="pun">,</span><span class="pln">
+            data</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">89.3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">92.1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">94.4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">85.4</span><span class="pun">]</span><span class="pln">
+        </span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">
+            type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln">
+            name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'2016'</span><span class="pun">,</span><span class="pln">
+            data</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">95.8</span><span class="pun">,</span><span class="pln"> </span><span class="lit">89.4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">91.2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">76.9</span><span class="pun">]</span><span class="pln">
+        </span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">
+            type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln">
+            name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'2017'</span><span class="pun">,</span><span class="pln">
+            data</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">97.7</span><span class="pun">,</span><span class="pln"> </span><span class="lit">83.1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">92.5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">78.1</span><span class="pun">]</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">]</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>这种方式的优点是，直观易理解，以及适于对一些特殊图表类型进行一定的数据类型定制。但是缺点是，为匹配这种数据输入形式，常需要有数据处理的过程，把数据分割设置到各个系列（和类目轴）中。此外，不利于多个系列共享一份数据，也不利于基于数据原始进行图表类型、系列的映射安排。</p>
+<p>于是，ECharts 4 新提供了 <code>数据集</code>（<code>dataset</code>）组件来单独声明数据，他带来了这些效果：</p>
+<ul>
+<li>能够贴近这样的数据可视化常见思维方式：基于数据（<code>dataset</code> 组件来提供数据），指定数据到视觉的映射（由 <a href="http://echarts.baidu.com/option.html#series.encode" target="_blank">encode</a> 属性来指定映射），形成图表。</li>
+<li>数据和其他配置可以被分离开来，使用者相对便于进行单独管理，也省去了一些数据处理的步骤。</li>
+<li>数据可以被多个系列或者组件复用，对于大数据，不必为每个系列创建一份。</li>
+<li>支持更多的数据的常用格式，例如二维数组、对象数组等，一定程度上避免使用者为了数据格式而进行转换。</li>
+</ul>
+<p><br></p>
+<hr>
+<p><br></p>
+<p><strong>入门例子</strong></p>
+<p>下面是一个最简单的 <code>dataset</code> 的例子：</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="pln">option </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    legend</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{},</span><span class="pln">
+    tooltip</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{},</span><span class="pln">
+    dataset</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// 提供一份数据。</span><span class="pln">
+        source</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+            </span><span class="pun">[</span><span class="str">'product'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2015'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2016'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2017'</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="str">'Matcha Latte'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">43.3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">85.8</span><span class="pun">,</span><span class="pln"> </span><span class="lit">93.7</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="str">'Milk Tea'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">83.1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">73.4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">55.1</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="str">'Cheese Cocoa'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">86.4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">65.2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">82.5</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="str">'Walnut Brownie'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">72.4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">53.9</span><span class="pun">,</span><span class="pln"> </span><span class="lit">39.1</span><span class="pun">]</span><span class="pln">
+        </span><span class="pun">]</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    </span><span class="com">// 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。</span><span class="pln">
+    xAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'category'</span><span class="pun">},</span><span class="pln">
+    </span><span class="com">// 声明一个 Y 轴，数值轴。</span><span class="pln">
+    yAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{},</span><span class="pln">
+    </span><span class="com">// 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。</span><span class="pln">
+    series</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">]</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>效果如下：</p>
+<iframe data-src="http://echarts.baidu.com/gallery/view.html?c=dataset-simple0&amp;edit=1&amp;reset=1" width="500" height="300" src="./ECharts Documentation_files/saved_resource.html"></iframe>
+
+
+<p>或者也可以使用常见的对象数组的格式：</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="pln">option </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    legend</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{},</span><span class="pln">
+    tooltip</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{},</span><span class="pln">
+    dataset</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// 这里指定了维度名的顺序，从而可以利用默认的维度到坐标轴的映射。</span><span class="pln">
+        </span><span class="com">// 如果不指定 dimensions，也可以通过指定 series.encode 完成映射，参见后文。</span><span class="pln">
+        dimensions</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'product'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2015'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2016'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2017'</span><span class="pun">],</span><span class="pln">
+        source</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">product</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Matcha Latte'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2015'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">43.3</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2016'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">85.8</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2017'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">93.7</span><span class="pun">},</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">product</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Milk Tea'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2015'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">83.1</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2016'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">73.4</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2017'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">55.1</span><span class="pun">},</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">product</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Cheese Cocoa'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2015'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">86.4</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2016'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">65.2</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2017'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">82.5</span><span class="pun">},</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">product</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Walnut Brownie'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2015'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">72.4</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2016'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">53.9</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2017'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">39.1</span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">]</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    xAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'category'</span><span class="pun">},</span><span class="pln">
+    yAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{},</span><span class="pln">
+    series</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">]</span><span class="pln">
+</span><span class="pun">};</span></code></pre>
+<p><br></p>
+<hr>
+<p><br></p>
+<p><strong>数据到图形的映射</strong></p>
+<p>本篇里，我们制作数据可视化图表的逻辑是这样的：基于数据，在配置项中指定如何映射到图形。</p>
+<p>概略而言，可以进行这些映射：</p>
+<ul>
+<li>指定 dataset 的列（column）还是行（row）映射为图形系列（series）。这件事可以使用 <a href="http://echarts.baidu.com/option.html#series.seriesLayoutBy" target="_blank">series.seriesLayoutBy</a> 属性来配置。默认是按照列（column）来映射。</li>
+<li>指定维度映射的规则：如何从 dataset 的维度（一个“维度”的意思是一行/列）映射到坐标轴（如 X、Y 轴）、提示框（tooltip）、标签（label）、图形元素大小颜色等（visualMap）。这件事可以使用 <a href="http://echarts.baidu.com/option.html#series.encode" target="_blank">series.encode</a> 属性，以及 <a href="http://echarts.baidu.com/option.html#visualMap" target="_blank">visualMap</a> 组件（如果有需要映射颜色大小等视觉维度的话）来配置。上面的例子中，没有给出这种映射配置，那么 ECharts 就按最常见的理解进行默认映射：X 坐标轴声明为类目轴，默认情况下会自动对应到 dataset.source 中的第一列；三个柱图系列，一一对应到 dataset.source 中后面每一列。</li>
+</ul>
+<p>下面详细解释。</p>
+<p><br></p>
+<hr>
+<p><br></p>
+<p><strong>按行还是按列做映射</strong></p>
+<p>有了数据表之后，使用者可以灵活得配置：数据如何对应到轴和图形系列。</p>
+<p>用户可以使用 <code>seriesLayoutBy</code> 配置项，改变图表对于行列的理解。<code>seriesLayoutBy</code> 可取值：</p>
+<ul>
+<li>'column': 默认值。系列被安放到 <code>dataset</code> 的列上面。</li>
+<li>'row': 系列被安放到 <code>dataset</code> 的行上面。</li>
+</ul>
+<p>看这个例子：</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="pln">option </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    legend</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{},</span><span class="pln">
+    tooltip</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{},</span><span class="pln">
+    dataset</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        source</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+            </span><span class="pun">[</span><span class="str">'product'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2012'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2013'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2014'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'2015'</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="str">'Matcha Latte'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">41.1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30.4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">65.1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">53.3</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="str">'Milk Tea'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">86.5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">92.1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">85.7</span><span class="pun">,</span><span class="pln"> </span><span class="lit">83.1</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="str">'Cheese Cocoa'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">24.1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">67.2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">79.5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">86.4</span><span class="pun">]</span><span class="pln">
+        </span><span class="pun">]</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    xAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'category'</span><span class="pun">,</span><span class="pln"> gridIndex</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'category'</span><span class="pun">,</span><span class="pln"> gridIndex</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">],</span><span class="pln">
+    yAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">gridIndex</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">gridIndex</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">],</span><span class="pln">
+    grid</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">bottom</span><span class="pun">:</span><span class="pln"> </span><span class="str">'55%'</span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">top</span><span class="pun">:</span><span class="pln"> </span><span class="str">'55%'</span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">],</span><span class="pln">
+    series</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="com">// 这几个系列会在第一个直角坐标系中，每个系列对应到 dataset 的每一行。</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln"> seriesLayoutBy</span><span class="pun">:</span><span class="pln"> </span><span class="str">'row'</span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln"> seriesLayoutBy</span><span class="pun">:</span><span class="pln"> </span><span class="str">'row'</span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln"> seriesLayoutBy</span><span class="pun">:</span><span class="pln"> </span><span class="str">'row'</span><span class="pun">},</span><span class="pln">
+        </span><span class="com">// 这几个系列会在第二个直角坐标系中，每个系列对应到 dataset 的每一列。</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln"> xAxisIndex</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> yAxisIndex</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln"> xAxisIndex</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> yAxisIndex</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln"> xAxisIndex</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> yAxisIndex</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln"> xAxisIndex</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> yAxisIndex</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">]</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>效果如下：</p>
+<iframe data-src="http://echarts.baidu.com/gallery/view.html?c=dataset-series-layout-by&amp;edit=1&amp;reset=1" width="800" height="600" src="./ECharts Documentation_files/saved_resource(1).html"></iframe>
+
+
+
+
+<p><br></p>
+<hr>
+<p><br></p>
+<p><strong>维度（dimension）</strong></p>
+<p>介绍 <code>encode</code> 之前，首先要介绍“维度（dimension）”的概念。</p>
+<p>常用图表所描述的数据大部分是“二维表”结构，上述的例子中，我们都使用二维数组来容纳二维表。现在，当我们把系列（series）对应到“列”的时候，那么每一列就称为一个“维度（dimension）”，而每一行称为数据项（item）。反之，如果我们把系列（series）对应到表行，那么每一行就是“维度（dimension）”，每一列就是数据项（item）。</p>
+<p>维度可以有单独的名字，便于在图表中显示。维度名（dimension name）可以在定义在 dataset 的第一行（或者第一列）。例如上面的例子中，<code>'score'</code>、<code>'amount'</code>、<code>'product'</code> 就是维度名。从第二行开始，才是正式的数据。<code>dataset.source</code> 中第一行（列）到底包含不包含维度名，ECharts 默认会自动探测。当然也可以设置 <code>dataset.sourceHeader: true</code> 显示声明第一行（列）就是维度，或者 <code>dataset.sourceHeader: false</code> 表明第一行（列）开始就直接是数据。</p>
+<p>维度的定义，也可以使用单独的 <code>dataset.dimensions</code> 或者 <code>series.dimensions</code> 来定义，这样可以同时指定维度名，和维度的类型（dimension type）：</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="kwd">var</span><span class="pln"> option1 </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    dataset</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        dimensions</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'score'</span><span class="pun">},</span><span class="pln">
+            </span><span class="com">// 可以简写为 string，表示维度名。</span><span class="pln">
+            </span><span class="str">'amount'</span><span class="pun">,</span><span class="pln">
+            </span><span class="com">// 可以在 type 中指定维度类型。</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'product'</span><span class="pun">,</span><span class="pln"> type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'ordinal'</span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">],</span><span class="pln">
+        source</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[...]</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    </span><span class="pun">...</span><span class="pln">
+</span><span class="pun">};</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> option2 </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    dataset</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        source</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[...]</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    series</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'line'</span><span class="pun">,</span><span class="pln">
+        </span><span class="com">// 在系列中设置的 dimensions 会更优先采纳。</span><span class="pln">
+        dimensions</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+            </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> </span><span class="com">// 可以设置为 null 表示不想设置维度名</span><span class="pln">
+            </span><span class="str">'amount'</span><span class="pun">,</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'product'</span><span class="pun">,</span><span class="pln"> type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'ordinal'</span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">]</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    </span><span class="pun">...</span><span class="pln">
+</span><span class="pun">};</span></code></pre>
+<p>大多数情况下，我们并不需要去设置维度类型，因为会自动判断。但是如果因为数据为空之类原因导致判断不足够准确时，可以手动设置维度类型。</p>
+<p>维度类型（dimension type）可以取这些值：</p>
+<ul>
+<li><code>'number'</code>: 默认，表示普通数据。</li>
+<li><code>'ordinal'</code>: 对于类目、文本这些 string 类型的数据，如果需要能在数轴上使用，须是 'ordinal' 类型。ECharts 默认会自动判断这个类型。但是自动判断也是不可能很完备的，所以使用者也可以手动强制指定。</li>
+<li><code>'time'</code>: 表示时间数据。设置成 <code>'time'</code> 则能支持自动解析数据成时间戳（timestamp），比如该维度的数据是 '2017-05-10'，会自动被解析。如果这个维度被用在时间数轴（<a href="http://echarts.baidu.com/option.html#xAxis.type" target="_blank">axis.type</a> 为 <code>'time'</code>）上，那么会被自动设置为 <code>'time'</code> 类型。时间类型的支持参见 <a href="http://echarts.baidu.com/option.html#series.data" target="_blank">data</a>。</li>
+<li><code>'float'</code>: 如果设置成 <code>'float'</code>，在存储时候会使用 <code>TypedArray</code>，对性能优化有好处。</li>
+<li><code>'int'</code>: 如果设置成 <code>'float'</code>，在存储时候会使用 <code>TypedArray</code>，对性能优化有好处。</li>
+</ul>
+<p><br></p>
+<hr>
+<p><br></p>
+<p><strong>数据到图形的映射（encode）</strong></p>
+<p>了解了维度的概念后，我们就可以使用 <a href="http://echarts.baidu.com/option.html#series.encode" target="_blank">encode</a> 来做映射。总体是这样的感觉：</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="kwd">var</span><span class="pln"> option </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    dataset</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        source</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+            </span><span class="pun">[</span><span class="str">'score'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'amount'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'product'</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="lit">89.3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">58212</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Matcha Latte'</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="lit">57.1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">78254</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Milk Tea'</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="lit">74.4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">41032</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Cheese Cocoa'</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="lit">50.1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">12755</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Cheese Brownie'</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="lit">89.7</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20145</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Matcha Cocoa'</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="lit">68.1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">79146</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Tea'</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="lit">19.6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">91852</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Orange Juice'</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="lit">10.6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">101852</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Lemon Juice'</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="lit">32.7</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20112</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Walnut Brownie'</span><span class="pun">]</span><span class="pln">
+        </span><span class="pun">]</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    xAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{},</span><span class="pln">
+    yAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'category'</span><span class="pun">},</span><span class="pln">
+    series</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">
+            type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln">
+            encode</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="com">// 将 "amount" 列映射到 X 轴。</span><span class="pln">
+                x</span><span class="pun">:</span><span class="pln"> </span><span class="str">'amount'</span><span class="pun">,</span><span class="pln">
+                </span><span class="com">// 将 "product" 列映射到 Y 轴。</span><span class="pln">
+                y</span><span class="pun">:</span><span class="pln"> </span><span class="str">'product'</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">]</span><span class="pln">
+</span><span class="pun">};</span></code></pre>
+<p>效果如下：</p>
+<iframe data-src="http://echarts.baidu.com/gallery/view.html?c=doc-example/dataset-encode-simple0&amp;edit=1&amp;reset=1" width="500" height="300" src="./ECharts Documentation_files/saved_resource(2).html"></iframe>
+
+
+
+<p><code>encode</code> 声明的基本结构如下，其中冒号左边是坐标系、标签等特定名称，如 <code>'x'</code>, <code>'y'</code>, <code>'tooltip'</code> 等，冒号右边是数据中的维度名（string 格式）或者维度的序号（number 格式，从 0 开始计数），可以指定一个或多个维度（使用数组）。通常情况下，下面各种信息不需要所有的都写，按需写即可。</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="com">// 例如在直角坐标系（grid/cartesian）中：</span><span class="pln">
+encode</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// 把 “维度1”、“维度5”、“名为 score 的维度” 映射到 X 轴：</span><span class="pln">
+    x</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="str">'score'</span><span class="pun">],</span><span class="pln">
+    </span><span class="com">// 把“维度0”映射到 Y 轴。</span><span class="pln">
+    y</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln">
+    </span><span class="com">// 使用 “名为 product 的维度” 和 “名为 score 的维度” 的值在 tooltip 中显示</span><span class="pln">
+    tooltip</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'product'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'score'</span><span class="pun">]</span><span class="pln">
+    </span><span class="com">// 使用 “维度 3” 的维度名作为系列名。（有时候名字比较长，这可以避免在 series.name 重复输入这些名字）</span><span class="pln">
+    seriesName</span><span class="pun">:</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln">
+    </span><span class="com">// 表示使用 “维度2” 中的值作为 id。这在使用 setOption 动态更新数据时有用处，可以使新老数据用 id 对应起来，从而能够产生合适的数据更新动画。</span><span class="pln">
+    itemId</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln">
+    </span><span class="com">// 指定数据项的名称使用 “维度3” 在饼图等图表中有用，可以使这个名字显示在图例（legend）中。</span><span class="pln">
+    itemName</span><span class="pun">:</span><span class="pln"> </span><span class="lit">3</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// 对于极坐标系，可以是：</span><span class="pln">
+encode</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln">
+    angle</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln">
+    </span><span class="pun">...</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// 对于地理坐标系，可以是：</span><span class="pln">
+encode</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    lng</span><span class="pun">:</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln">
+    lat</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// 对于一些没有坐标系的图表，例如饼图、漏斗图等，可以是：</span><span class="pln">
+encode</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    value</span><span class="pun">:</span><span class="pln"> </span><span class="lit">3</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>下面给出个更丰富的 <code>encode</code> 的示例：</p>
+<iframe data-src="http://echarts.baidu.com/gallery/view.html?c=dataset-encode1&amp;edit=1&amp;reset=1" width="800" height="600" src="./ECharts Documentation_files/saved_resource(3).html"></iframe>
+
+
+
+
+
+<p><br></p>
+<hr>
+<p><br></p>
+<p><strong>视觉通道（颜色、尺寸等）的映射</strong></p>
+<p>我们可以使用 <a href="http://echarts.baidu.com/option.html#visualMap" target="_blank">visualMap</a> 组件进行视觉通道的映射。详见 <code>visualMap</code> 文档的介绍。这是一个示例：</p>
+<iframe data-src="http://echarts.baidu.com/gallery/view.html?c=dataset-encode0&amp;edit=1&amp;reset=1" width="500" height="400" src="./ECharts Documentation_files/saved_resource(4).html"></iframe>
+
+
+
+
+<p><br></p>
+<hr>
+<p><br></p>
+<p><strong>默认的映射</strong></p>
+<p>指的一提的是，ECharts 针对最常见直角坐标系中的图表（折线图、柱状图、散点图、K线图等）、饼图、漏斗图，给出了简单的默认的映射，从而不需要配置 <code>encode</code> 也可以出现图表（一旦给出了 <code>encode</code>，那么就不会采用默认映射）。默认的映射规则不易做得复杂，基本规则大体是：</p>
+<ul>
+<li>在坐标系中（如直角坐标系、极坐标系等）<ul>
+<li>如果有类目轴（axis.type 为 'category'），则将第一列（行）映射到这个轴上，后续每一列（行）对应一个系列。</li>
+<li>如果没有类目轴，假如坐标系有两个轴（例如直角坐标系的 X Y 轴），则每两列对应一个系列，这两列分别映射到这两个轴上。</li>
+</ul>
+</li>
+<li>如果没有坐标系（如饼图）<ul>
+<li>取第一列（行）为名字，第二列（行）为数值（如果只有一列，则取第一列为数值）。</li>
+</ul>
+</li>
+</ul>
+<p>默认的规则不能满足要求时，就可以自己来配置 <code>encode</code>，也并不复杂。</p>
+<iframe data-src="http://echarts.baidu.com/gallery/view.html?c=dataset-default&amp;edit=1&amp;reset=1" width="800" height="400" src="./ECharts Documentation_files/saved_resource(5).html"></iframe>
+
+
+
+<p><br></p>
+<hr>
+<p><br></p>
+<p><strong>几个常见的映射设置方式</strong></p>
+<p>问：如何把第三列设置为 X 轴，第五列设置为 Y 轴？</p>
+<p>答：</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="pln">series</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// 注意维度序号（dimensionIndex）从 0 开始计数，第三列是 dimensions[2]。</span><span class="pln">
+    encode</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">x</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">:</span><span class="pln"> </span><span class="lit">4</span><span class="pun">},</span><span class="pln">
+    </span><span class="pun">...</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>问：如何把第三行设置为 X 轴，第五行设置为 Y 轴？</p>
+<p>答：</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="pln">series</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    encode</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">x</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">:</span><span class="pln"> </span><span class="lit">4</span><span class="pun">},</span><span class="pln">
+    seriesLayoutBy</span><span class="pun">:</span><span class="pln"> </span><span class="str">'row'</span><span class="pun">,</span><span class="pln">
+    </span><span class="pun">...</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>问：如何把第二列设置为标签？</p>
+<p>答：
+关于标签的显示 <a href="http://echarts.baidu.com/option.html#series.label.formatter" target="_blank">label.formatter</a>，现在支持引用特定维度的值，例如：</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="pln">series</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    label</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// `'{@score}'` 表示 “名为 score” 的维度里的值。</span><span class="pln">
+        </span><span class="com">// `'{@[4]}'` 表示引用序号为 4 的维度里的值。</span><span class="pln">
+        formatter</span><span class="pun">:</span><span class="pln"> </span><span class="str">'aaa{@product}bbb{@score}ccc{@[4]}ddd'</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>问：如何让第 2 列和第 3 列显示在提示框（tooltip）中？</p>
+<p>答：</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="pln">series</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    encode</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        tooltip</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">]</span><span class="pln">
+        </span><span class="pun">...</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    </span><span class="pun">...</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>问：数据里没有维度名，那么怎么给出维度名？</p>
+<p>答：</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="pln">dataset</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    dimensions</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'score'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'amount'</span><span class="pun">],</span><span class="pln">
+    source</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="pun">[</span><span class="lit">89.3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3371</span><span class="pun">],</span><span class="pln">
+        </span><span class="pun">[</span><span class="lit">92.1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8123</span><span class="pun">],</span><span class="pln">
+        </span><span class="pun">[</span><span class="lit">94.4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1954</span><span class="pun">],</span><span class="pln">
+        </span><span class="pun">[</span><span class="lit">85.4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">829</span><span class="pun">]</span><span class="pln">
+    </span><span class="pun">]</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>问：如何把第四列映射为气泡图的点的大小？</p>
+<p>答：</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="kwd">var</span><span class="pln"> option </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    dataset</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        source</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+            </span><span class="pun">[</span><span class="lit">12</span><span class="pun">,</span><span class="pln"> </span><span class="lit">323</span><span class="pun">,</span><span class="pln"> </span><span class="lit">11.2</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="lit">23</span><span class="pun">,</span><span class="pln"> </span><span class="lit">167</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8.3</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="lit">81</span><span class="pun">,</span><span class="pln"> </span><span class="lit">284</span><span class="pun">,</span><span class="pln"> </span><span class="lit">12</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="lit">91</span><span class="pun">,</span><span class="pln"> </span><span class="lit">413</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4.1</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">[</span><span class="lit">13</span><span class="pun">,</span><span class="pln"> </span><span class="lit">287</span><span class="pun">,</span><span class="pln"> </span><span class="lit">13.5</span><span class="pun">]</span><span class="pln">
+        </span><span class="pun">]</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    visualMap</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        show</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">,</span><span class="pln">
+        dimension</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="com">// 指向第三列（列序号从 0 开始记，所以设置为 2）。</span><span class="pln">
+        min</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="com">// 需要给出数值范围，最小数值。</span><span class="pln">
+        max</span><span class="pun">:</span><span class="pln"> </span><span class="lit">15</span><span class="pun">,</span><span class="pln"> </span><span class="com">// 需要给出数值范围，最大数值。</span><span class="pln">
+        inRange</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="com">// 气泡尺寸：5 像素到 60 像素。</span><span class="pln">
+            symbolSize</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">60</span><span class="pun">]</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    xAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{},</span><span class="pln">
+    yAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{},</span><span class="pln">
+    series</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'scatter'</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">};</span></code></pre>
+<p>问：encode 里指定了映射，但是不管用？</p>
+<p>答：可以查查有没有拼错，比如，维度名是：<code>'Life Expectancy'</code>，encode 中拼成了 <code>'Life Expectency'</code>。</p>
+<p><br></p>
+<hr>
+<p><br></p>
+<p><strong>数据的各种格式</strong></p>
+<p>多数常见图表中，数据适于用二维表的形式描述。广为使用的数据表格软件（如 MS Excel、Numbers）或者关系数据数据库都是二维表。他们的数据可以导出成 JSON 格式，输入到 <code>dataset.source</code> 中，在不少情况下可以免去一些数据处理的步骤。</p>
+<blockquote>
+<p>假如数据导出成 csv 文件，那么可以使用一些 csv 工具如 <a href="https://github.com/d3/d3-dsv" target="_blank">dsv</a> 或者 <a href="https://github.com/mholt/PapaParse" target="_blank">PapaParse</a> 将 csv 转成 JSON。</p>
+</blockquote>
+<p>在 JavaScript 常用的数据传输格式中，二维数组可以比较直观的存储二维表。前面的示例都是使用二维数组表示。</p>
+<p>除了二维数组以外，dataset 也支持例如下面 key-value 方式的数据格式，这类格式也非常常见。但是这类格式中，目前并不支持 <a href="http://echarts.baidu.com/option.html#series.seriesLayoutBy" target="_blank">seriesLayoutBy</a> 参数。</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="pln">dataset</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[{</span><span class="pln">
+    </span><span class="com">// 按行的 key-value 形式（对象数组），这是个比较常见的格式。</span><span class="pln">
+    source</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">product</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Matcha Latte'</span><span class="pun">,</span><span class="pln"> count</span><span class="pun">:</span><span class="pln"> </span><span class="lit">823</span><span class="pun">,</span><span class="pln"> score</span><span class="pun">:</span><span class="pln"> </span><span class="lit">95.8</span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">product</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Milk Tea'</span><span class="pun">,</span><span class="pln"> count</span><span class="pun">:</span><span class="pln"> </span><span class="lit">235</span><span class="pun">,</span><span class="pln"> score</span><span class="pun">:</span><span class="pln"> </span><span class="lit">81.4</span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">product</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Cheese Cocoa'</span><span class="pun">,</span><span class="pln"> count</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1042</span><span class="pun">,</span><span class="pln"> score</span><span class="pun">:</span><span class="pln"> </span><span class="lit">91.2</span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">product</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Walnut Brownie'</span><span class="pun">,</span><span class="pln"> count</span><span class="pun">:</span><span class="pln"> </span><span class="lit">988</span><span class="pun">,</span><span class="pln"> score</span><span class="pun">:</span><span class="pln"> </span><span class="lit">76.9</span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">]</span><span class="pln">
+</span><span class="pun">},</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// 按列的 key-value 形式。</span><span class="pln">
+    source</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="str">'product'</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'Matcha Latte'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Milk Tea'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Cheese Cocoa'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Walnut Brownie'</span><span class="pun">],</span><span class="pln">
+        </span><span class="str">'count'</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">823</span><span class="pun">,</span><span class="pln"> </span><span class="lit">235</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1042</span><span class="pun">,</span><span class="pln"> </span><span class="lit">988</span><span class="pun">],</span><span class="pln">
+        </span><span class="str">'score'</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">95.8</span><span class="pun">,</span><span class="pln"> </span><span class="lit">81.4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">91.2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">76.9</span><span class="pun">]</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}]</span></code></pre>
+<p><br></p>
+<hr>
+<p><br></p>
+<p><strong>多个 dataset 和他们的引用</strong></p>
+<p>可以同时定义多个 dataset。系列可以通过 <a href="http://echarts.baidu.com/option.html#series.datasetIndex" target="_blank">series.datasetIndex</a> 来指定引用哪个 dataset。例如：</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="kwd">var</span><span class="pln"> option </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    dataset</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[{</span><span class="pln">
+        </span><span class="com">// 序号为 0 的 dataset。</span><span class="pln">
+        source</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[...],</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// 序号为 1 的 dataset。</span><span class="pln">
+        source</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[...]</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// 序号为 2 的 dataset。</span><span class="pln">
+        source</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[...]</span><span class="pln">
+    </span><span class="pun">}],</span><span class="pln">
+    series</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[{</span><span class="pln">
+        </span><span class="com">// 使用序号为 2 的 dataset。</span><span class="pln">
+        datasetIndex</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// 使用序号为 1 的 dataset。</span><span class="pln">
+        datasetIndex</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pln">
+    </span><span class="pun">}]</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p><br></p>
+<hr>
+<p><br></p>
+<p><strong>ECharts 3 的数据设置方式（series.data）仍正常使用</strong></p>
+<p>ECharts 4 之前一直以来的数据声明方式仍然被正常支持，如果系列已经声明了 <a href="http://echarts.baidu.com/option.html#series.data" target="_blank">series.data</a>， 那么就会使用 <a href="http://echarts.baidu.com/option.html#series.data" target="_blank">series.data</a> 而非 <code>dataset</code>。</p>
+<pre><code class="lang-js prettyprint prettyprinted" style=""><span class="pun">{</span><span class="pln">
+    xAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'category'</span><span class="pln">
+        data</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'Matcha Latte'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Milk Tea'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Cheese Cocoa'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Walnut Brownie'</span><span class="pun">]</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    yAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{},</span><span class="pln">
+    series</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[{</span><span class="pln">
+        type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln">
+        name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'2015'</span><span class="pun">,</span><span class="pln">
+        data</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">89.3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">92.1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">94.4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">85.4</span><span class="pun">]</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln">
+        name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'2016'</span><span class="pun">,</span><span class="pln">
+        data</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">95.8</span><span class="pun">,</span><span class="pln"> </span><span class="lit">89.4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">91.2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">76.9</span><span class="pun">]</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln">
+        name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'2017'</span><span class="pun">,</span><span class="pln">
+        data</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">97.7</span><span class="pun">,</span><span class="pln"> </span><span class="lit">83.1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">92.5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">78.1</span><span class="pun">]</span><span class="pln">
+    </span><span class="pun">}]</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>其实，<a href="http://echarts.baidu.com/option.html#series.data" target="_blank">series.data</a> 也是种会一直存在的重要设置方式。一些特殊的非 table 格式的图表，如 <a href="http://echarts.baidu.com/option.html#series-treemap" target="_blank">treemap</a>、<a href="http://echarts.baidu.com/option.html#series-graph" target="_blank">graph</a>、<a href="http://echarts.baidu.com/option.html#series-lines" target="_blank">lines</a> 等，现在仍不支持在 dataset 中设置，仍然需要使用 <a href="http://echarts.baidu.com/option.html#series.data" target="_blank">series.data</a>。另外，对于巨大数据量的渲染（如百万以上的数据量），需要使用 <a href="http://echarts.baidu.com/api.html#echartsInstance.appendData" target="_blank">appendData</a> 进行增量加载，这种情况不支持使用 <code>dataset</code>。</p>
+<p><br></p>
+<hr>
+<p><br></p>
+<p><strong>其他</strong></p>
+<p>目前并非所有图表都支持 dataset。支持 dataset 的图表有：
+<code>line</code>、<code>bar</code>、<code>pie</code>、<code>scatter</code>、<code>effectScatter</code>、<code>parallel</code>、<code>candlestick</code>、<code>map</code>、<code>funnel</code>、<code>custom</code>。
+后续会有更多的图表进行支持。</p>
+<p>最后，给出一个示例，多个图表共享一个 <code>dataset</code>，并带有联动交互：</p>
+<iframe data-src="http://echarts.baidu.com/gallery/view.html?c=dataset-link&amp;edit=1&amp;reset=1" width="800" height="500" src="./ECharts Documentation_files/saved_resource(6).html"></iframe>
+
+
+
+
+
+</div>
+</div>
+    <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 899px; right: 3px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 54px;"></div></div></div>
+</div>
+
+<div class="ecdoc-api-hover-desc" style="opacity: 1; display: none;">
+<div class="ecdoc-api-doc-group-line " data-tree-item-id="">
+    <div data-tree-item-id="" class="ecdoc-api-doc-line-expand iconfont" style="display:none"></div>
+    <div class="ecdoc-api-doc-line-head " data-tree-item-id="">
+       <span class="ecdoc-api-doc-line-label"><strong>自定义构建 ECharts</strong></span>
+       <span class="ecdoc-api-doc-line-type">*</span>
+    </div>
+    <div class="ecdoc-api-doc-line-default">
+       
+    </div>
+    <p>一般来说，可以直接从 <a href="http://echarts.baidu.com/download.html" target="_blank">echarts 下载页</a> 中获取构建好的 echarts，也可以从 <a href="https://github.com/ecomfe/echarts/releases" target="_blank">GitHub</a> 中的 <code>echarts/dist</code> 文件夹中获取构建好的 echarts，这都可以直接在浏览器端项目中使用。这些构建好的 echarts 提供了下面这几种定制：</p>
+<ul>
+<li>完全版：<code>echarts/dist/echarts.js</code>，体积最大，包含所有的图表和组件，所包含内容参见：<code>echarts/echarts.all.js</code>。</li>
+<li>常用版：<code>echarts/dist/echarts.common.js</code>，体积适中，包含常见的图表和组件，所包含内容参见：<code>echarts/echarts.common.js</code>。</li>
+<li>精简版：<code>echarts/dist/echarts.simple.js</code>，体积较小，仅包含最常用的图表和组件，所包含内容参见：<code>echarts/echarts.simple.js</code>。</li>
+</ul>
+<p>如果对文件体积有更严苛的要求，可以自己构建 echarts，能够仅仅包括自己所需要的图表和组件。自定义构建有几种方式：</p>
+<ul>
+<li><a href="http://echarts.baidu.com/builder.html" target="_blank">在线自定义构建</a>：比较方便。</li>
+<li>使用 <code>echarts/build/build.js</code> 脚本自定义构建：比在线构建更灵活一点，并且支持多语言。</li>
+<li>直接使用构建工具（如 <a href="https://rollupjs.org/" target="_blank">rollup</a>、<a href="https://webpack.github.io/" target="_blank">webpack</a>、<a href="http://browserify.org/" target="_blank">browserify</a>）自己构建：也是一种选择。</li>
+</ul>
+<p>下面我们举些小例子，介绍后两种方式。</p>
+<h2 id="-echarts">准备工作：创建自己的工程和安装 echarts</h2>
+<p>使用命令行，创建自己的工程：</p>
+<pre><code class="lang-shell">mkdir myProject
+cd myProject
+</code></pre>
+<p>在 <code>myProject</code> 目录下使用命令行，初始化工程的 <a href="https://www.npmjs.com/" target="_blank">npm</a> 环境并安装 echarts（这里前提是您已经安装了 <a href="https://www.npmjs.com/" target="_blank">npm</a>）：</p>
+<pre><code class="lang-shell">npm init
+npm install echarts --save
+</code></pre>
+<p>通过 npm 安装的 echarts 会出现在 <code>myProject/node_modules</code> 目录下，从而可以直接在项目代码中得到 echarts，例如：</p>
+<p>使用 ES Module：</p>
+<pre><code class="lang-js">import * as echarts from 'echarts';
+</code></pre>
+<p>使用 CommonJS：</p>
+<pre><code class="lang-js">var echarts = require('echarts')
+</code></pre>
+<p>下面仅以使用 ES Module 的方式来举例。</p>
+<h2 id="-echarts-">使用 echarts 提供的构建脚本自定义构建</h2>
+<p>在这个例子中，我们要创建一个饼图，并且想自定义构建一个只含有饼图的 echarts 文件，从而能使 echarts 文件的大小比较小一些。</p>
+<p>echarts 已经提供了构建脚本 <code>echarts/build/build.js</code>，基于 <a href="https://nodejs.org/" target="_blank">Node.js</a> 运行。我们可以在 <code>myProject</code> 目录下使用命令行，看到它的使用方式：</p>
+<pre><code class="lang-shell">node node_modules/echarts/build/build.js --help
+</code></pre>
+<p>其中我们在这个例子里会用到的参数有：</p>
+<ul>
+<li><code>-i</code>：代码入口文件，可以是绝对路径或者基于当前命令行路径的相对路径。</li>
+<li><code>-o</code>：生成的 bundle 文件，可以是绝对路径或者基于当前命令行路径的相对路径。</li>
+<li><code>--min</code>：是否压缩文件（默认不压缩），并且去多余的打印错误信息的代码，形成生产环境可用的文件。</li>
+<li><code>--lang &lt;language shortcut or file path&gt;</code>：是否使用其他语言版本，默认是中文。例如：<code>--lang en</code> 表示使用英文，<code>--lang my/langXX.js</code> 表示构建时使用 <code>&lt;cwd&gt;/my/langXX.js</code> 替代 <code>echarts/lib/lang.js</code> 文件。</li>
+<li><code>--sourcemap</code>：是否输出 source map，以便于调试。</li>
+<li><code>--format</code>：输出的格式，可选 <code>'umb'</code>（默认）、<code>'amd'</code>、<code>'iife'</code>、<code>'cjs'</code>、<code>'es'</code>。</li>
+</ul>
+<p>既然我们想自定义构建一个只含有饼图的 echarts 文件，我们需要创建一个入口文件，可以命名为 <code>myProject/echarts.custom.js</code>，文件里会引用所需要的 echarts 模块：</p>
+<pre><code class="lang-js">// 引入 echarts 主模块。
+export * from 'echarts/src/echarts';
+// 引入饼图。
+import 'echarts/src/chart/pie';
+// 在这个场景下，可以引用 `echarts/src` 或者 `echarts/lib` 下的文件（但是不可混用），
+// 参见下方的解释：“引用 `echarts/lib/**` 还是 `echarts/src/**`”。
+</code></pre>
+<p>然后我们可以在 <code>myProject</code> 目录下使用命令行，这样开始构建：</p>
+<pre><code class="lang-shell">node node_modules/echarts/build/build.js --min -i echarts.custom.js -o lib/echarts.custom.min.js
+</code></pre>
+<p>这样，<code>myProject/lib/echarts.custom.min.js</code> 就生成了。我们可以创建 <code>myProject/pie.html</code> 来使用它：</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;myProject&lt;/title&gt;
+    &lt;!-- 引入 lib/echarts.custom.min.js --&gt;
+    &lt;script src="lib/echarts.custom.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="main" style="width: 600px;height:400px;"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        // 绘制图表。
+        echarts.init(document.getElementById('main')).setOption({
+            series: {
+                type: 'pie',
+                data: [
+                    {name: 'A', value: 1212},
+                    {name: 'B', value: 2323},
+                    {name: 'C', value: 1919}
+                ]
+            }
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>然后在浏览器里打开 <code>myProject/pie.html</code>，就可以看到一个饼图：</p>
+<p><img width="300" height="auto" src="./ECharts Documentation_files/custom-build-pie.png"></p>
+<h2 id="-">允许被引用的模块</h2>
+<p>在自定义构建中，允许被引用的模块，全声明在 <a href="https://github.com/ecomfe/echarts/blob/master/echarts.all.js" target="_blank"><code>myProject/node_module/echarts/echarts.all.js</code></a> 和 <a href="https://github.com/ecomfe/echarts/blob/master/src/export.js" target="_blank"><code>myProject/node_module/echarts/src/export.js</code></a> 中。echarts 和 zrender 源代码中的其他模块，都是 echarts 的内部模块，<strong>不应该去引用</strong>。因为在后续 echarts 版本升级中，内部模块的接口和功能可能变化，甚至模块本身也可能被移除。</p>
+<h2 id="-echarts-lib-echarts-src-">引用 <code>echarts/lib/**</code> 还是 <code>echarts/src/**</code></h2>
+<ul>
+<li>项目中如果直接引用 echarts 里的一些模块并自行构建，应该使用 <code>echarts/lib/**</code> 路径，而不可使用 <code>echarts/src/**</code>。</li>
+<li>当使用构建脚本 <code>echarts/build/build.js</code> 打包 bundle，那么两者可以选其一使用（不可混用），使用 <code>echarts/src/**</code> 可以获得稍微小一些的文件体积。</li>
+</ul>
+<blockquote>
+<p>原因是：目前，<code>echarts/src/**</code> 中是采用 ES Module 的源代码，<code>echarts/lib/**</code> 中是 <code>echarts/src/**</code> 编译成为 CommonJS 后的产物（编译成 CommonJS 是为了向后兼容一些不支持 ES Module 的老版本 NodeJS 和 webpack）。
+因为历史上，各个 echarts 扩展、各个用户项目，一直是使用的包路径是 <code>echarts/lib/**</code>，所以这个路径不应该改变，否则，可能导致混合使用 <code>echarts/src/**</code> 和 <code>echarts/lib/**</code> 得到两个不同的 echarts 名空间，造成问题。而使用 <code>echarts/build/build.js</code> 打包 bundle 时没有涉及这个问题，<code>echarts/src/**</code> 中的 ES Module 便于静态分析从而得到稍微小些的文件体积。</p>
+</blockquote>
+<h2 id="-rollup-">直接使用 rollup 自定义构建</h2>
+<p>上文中介绍了如何使用 echarts 提供的脚本 <code>echarts/build/build.js</code> 自定义构建。与此并列的另一种选择是，我们直接使用构建工具（如 <a href="https://rollupjs.org/" target="_blank">rollup</a>、<a href="https://webpack.github.io/" target="_blank">webpack</a>、<a href="http://browserify.org/" target="_blank">browserify</a>）自定义构建，并且把 echarts 代码和项目代码在构建成一体。在一些项目中可能需要这么做。下面我们仅仅介绍如何使用 <a href="https://rollupjs.org/" target="_blank">rollup</a> 来构建。<a href="https://webpack.github.io/" target="_blank">webpack</a> 和 <a href="http://browserify.org/" target="_blank">browserify</a> 与此类同，不赘述。</p>
+<p>首先我们在 <code>myProject</code> 目录下使用 npm 安装 <a href="https://rollupjs.org/" target="_blank">rollup</a>：</p>
+<pre><code class="lang-shell">npm install rollup --save-dev
+npm install rollup-plugin-node-resolve --save-dev
+npm install rollup-plugin-uglify --save-dev
+</code></pre>
+<p>接下来创建项目 JS 文件 <code>myProject/line.js</code> 来绘制图表，内容为：</p>
+<pre><code class="lang-js">// 引入 echarts 主模块。
+import * as echarts from 'echarts/lib/echarts';
+// 引入折线图。
+import 'echarts/lib/chart/line';
+// 引入提示框组件、标题组件、工具箱组件。
+import 'echarts/lib/component/tooltip';
+import 'echarts/lib/component/title';
+import 'echarts/lib/component/toolbox';
+
+// 基于准备好的dom，初始化 echarts 实例并绘制图表。
+echarts.init(document.getElementById('main')).setOption({
+    title: {text: 'Line Chart'},
+    tooltip: {},
+    toolbox: {
+        feature: {
+            dataView: {},
+            saveAsImage: {
+                pixelRatio: 2
+            },
+            restore: {}
+        }
+    },
+    xAxis: {},
+    yAxis: {},
+    series: [{
+        type: 'line',
+        smooth: true,
+        data: [[12, 5], [24, 20], [36, 36], [48, 10], [60, 10], [72, 20]]
+    }]
+});
+</code></pre>
+<p>对于不支持 ES Module 的浏览器而言，刚才创建的 <code>myProject/line.js</code> 还不能直接被网页引用并在浏览器中运行，需要进行构建。使用 <a href="https://rollupjs.org/" target="_blank">rollup</a> 构建前，需要创建它的配置文件 <code>myProject/rollup.config.js</code>，内容如下：</p>
+<pre><code class="lang-js">// 这个插件用于在 `node_module` 文件夹（即 npm 用于管理模块的文件夹）中寻找模块。比如，代码中有
+// `import 'echarts/lib/chart/line';` 时，这个插件能够寻找到
+// `node_module/echarts/lib/chart/line.js` 这个模块文件。
+import nodeResolve from 'rollup-plugin-node-resolve';
+// 用于压缩构建出的代码。
+import uglify from 'rollup-plugin-uglify';
+// 用于多语言支持（如果不需要可忽略此 plugin）。
+// import ecLangPlugin from 'echarts/build/rollup-plugin-ec-lang';
+
+export default {
+    name: 'myProject',
+    // 入口代码文件，就是刚才所创建的文件。
+    input: './line.js',
+    plugins: [
+        nodeResolve(),
+        // ecLangPlugin({lang: 'en'}),
+        // 消除代码中的 __DEV__ 代码段，从而不在控制台打印错误提示信息。
+        uglify()
+    ],
+    output: {
+        // 以 UMD 格式输出，从而能在各种浏览器中加载使用。
+        format: 'umd',
+        // 输出 source map 便于调试。
+        sourcemap: true,
+        // 输出文件的路径。
+        file: 'lib/line.min.js'
+    }
+};
+</code></pre>
+<p>然后在 <code>myProject</code> 目录下使用命令行，构建工程代码 <code>myProject/line.js</code>：</p>
+<pre><code class="lang-shell">./node_modules/.bin/rollup -c
+</code></pre>
+<blockquote>
+<p>其中 <code>-c</code> 表示让 <code>rollup</code> 使用我们刚才创建的 <code>myProject/rollup.config.js</code> 文件作为配置文件。</p>
+</blockquote>
+<p>构建生成的 <code>myProject/lib/line.min.js</code> 文件包括了工程代码和 echarts 代码，并且仅仅包括我们所需要的图和组件，并且可以在浏览器中使用。我们可以用一个示例页面来测试一下，创建文件 <code>myProject/line.html</code>，内容如下：</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;myProject&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 为 echarts 准备一个具备大小（宽高）的Dom。 --&gt;
+    &lt;div id="main" style="width: 600px;height:400px;"&gt;&lt;/div&gt;
+    &lt;!-- 引入刚才构建好的文件。 --&gt;
+    &lt;script src="lib/line.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>在浏览器里打开 <code>myProject/line.html</code> 则会得到如下效果：</p>
+<p><img width="500" height="auto" src="./ECharts Documentation_files/custom-build-line.png"></p>
+<h2 id="-">多语言支持</h2>
+<p>上面的例子中能看到，工具箱组件（toolbox）的提示文字是中文。本质上，echarts 图表显示出来的文字，都可以通过 <code>option</code> 来定制，改成任意语言。但是如果想“默认就是某种语言”，则需要通过构建来实现。</p>
+<p>在上面的例子中，可以在 <code>echarts/build/build.js</code> 的参数中指定语言：</p>
+<pre><code class="lang-shell">node node_modules/echarts/build/build.js --min -i echarts.custom.js -o lib/echarts.custom.min.js --lang en
+</code></pre>
+<p>表示使用内置的英文。此外还可以是 <code>--lang fi</code>。</p>
+<pre><code class="lang-shell">node node_modules/echarts/build/build.js --min -i echarts.custom.js -o lib/echarts.custom.min.js --lang my/langXX.js
+</code></pre>
+<p>表示在构建时使用 <code>myProject/my/langXX.js</code> 文件来替换 <code>myProject/node_modules/echarts/lib/lang.js</code> 文件。这样可以在 <code>myProject/my/langXX.js</code> 文件中自定义语言。注意这种方式中，必须指定 <code>-o</code> 或者 <code>--output</code>。</p>
+<p>另外，上面的 rollup 插件 <code>echarts/build/rollup-plugin-ec-lang</code> 也可以传入同样的参数，实现同样的功能。</p>
+
+    
+</div>
+</div>
+</div></div><script type="text/javascript" src="./ECharts Documentation_files/bootstrap.min.js.下载"></script><script type="text/javascript" src="./ECharts Documentation_files/common.js.下载"></script><script src="./ECharts Documentation_files/jquery.event.move.js.下载"></script><script src="./ECharts Documentation_files/jquery.twentytwenty.js.下载"></script><script type="text/javascript">$('#main').addClass('tutorial');
+
+window.globalArgsExtra = {
+    pageName: 'tutorial',
+    schemaUrl: 'documents/cn/tutorial.json',
+    initHash: '5 分钟上手 ECharts',
+    hideTreeRoot: true,
+    pureTitle: true,
+    noCtxVar: true,
+    lang: {
+        cn: {
+            queryBoxTextFuzzyPath: '教程搜索',
+            queryBoxPlaceholderFuzzyPath: '教程名称搜索（快捷键\'/\'）'
+        },
+        en: {
+            queryBoxTextFuzzyPath: 'tutorial search',
+            queryBoxPlaceholderFuzzyPath: 'tutorial search (shortcut: \'/\')'
+        }
+    }
+};</script><script src="./ECharts Documentation_files/jquery.auto-complete.min.js.下载"></script><script type="text/javascript">document.getElementById('nav-doc').className = 'active';
+
+var vendorPath = '../vendors';
+
+define('globalArgs', extend({
+    version: '1519820660165',
+    basePath: './',
+    // Schema url is added by each doc page
+    schemaUrl: '',
+    iconfont: {
+        down: '&#' + parseInt('e600', 16),
+        up: '&#' + parseInt('e603', 16),
+        right: '&#' + parseInt('e602', 16),
+        left: '&#' + parseInt('e604', 16),
+        handLens: '&#' + parseInt('e601', 16)
+    }
+}, window.globalArgsExtra || {}));
+
+define('prettyPrint', function () {
+    return prettyPrint;
+});
+
+define('ecLog', function () {
+    // log maybe blocked
+    if (typeof ecLog === 'undefined') {
+        ecLog = function () {};
+    }
+    return ecLog;
+});
+
+require.config({
+    baseUrl: './js',
+    paths: {
+        dt: vendorPath + '/dt/0.0.1',
+        tpl: vendorPath + '/dt/0.0.1/tplLoader',
+        etpl: vendorPath + '/etpl/3.0.0/etpl.min',
+        signals: vendorPath + '/signals/1.0.0/signals.min',
+        hasher: vendorPath + '/hasher/1.2.0/hasher.min',
+        perfectScrollbar: vendorPath + '/perfect-scrollbar/0.6.8/js/perfect-scrollbar'
+    },
+    urlArgs: '_v_=1519820660165'
+});
+
+require(['docTool/main'], function (main) {
+    main.init();
+});
+
+function extend(tar, src) {
+    for (var name in src) {
+        if (src.hasOwnProperty(name)) {
+            tar[name] = src[name];
+        }
+    }
+    return tar;
+}</script><script type="text/javascript">var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?4bad1df23f079e0d12bdbef5e65b072f";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();</script><div class="autocomplete-suggestions " style="top: 133px; left: 37px; width: 224px;"></div><div class="dtui-global-tooltip" style="display: none; left: 278px; top: 219px;"></div></body></html>
