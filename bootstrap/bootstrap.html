@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>bootstrap--test</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="plugin/bootstrap-3.3.7-dist/css/bootstrap.css">
+	<script type="text/javascript" src="plugin/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="plugin/bootstrap-select-1.12.4/dist/css/bootstrap-select.css">
+	<script type="text/javascript" src="plugin/bootstrap-select-1.12.4/dist/js/bootstrap-select.js"></script>
+</head>
+<body>
+			<select id="httpType" class="selectpicker" multiple="multiple" placeholder="select httpType">
+				  
+			</select>
+
+			<button class="btn btn-danger" id="btn1">获取</button>
+	<script type="text/javascript">
+		$(function(){
+					for (var i=1;i<20;i++) {
+								$("#httpType").append("<option value='"+i+"'>hehed"+i+"</option>");
+					}
+					$("#httpType").selectpicker({
+									liveSearch:true,
+									actionsBox:true,
+									selectedTextFormat:'count>2'
+											 
+									
+
+					})
+
+					$("#btn1").click(function(){
+									var options= $("#httpType").find("option:selected");
+									options.each(function(){
+													console.log($(this).val()+":"+$(this).text())
+									})
+					})
+		})
+
+	</script>
+
+
+
+</body>
+</html>												
