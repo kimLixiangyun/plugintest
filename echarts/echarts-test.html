@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>echarts</title>
+	<script type="text/javascript" src="plugin/incubator-echarts-master/dist/echarts.js"></script>
+</head>
+<body>
+	<div id="mychar" style="width: 800px;height:600px;"></div>
+
+	<script type="text/javascript">
+		var mychar=echarts.init(document.getElementById("mychar"));
+		var	option = {
+		    title : {
+		        text : '时间坐标折线图',
+		        subtext : 'dataZoom支持'
+		    },
+		    tooltip : {
+		        trigger: 'item',
+		        formatter : function (params) {
+		            var date = new Date(params.value[0]);
+
+		            console.log(params)
+		            data = date.getFullYear() + '-'
+		                   + (date.getMonth() + 1) + '-'
+		                   + date.getDate() + ' '
+		                   + date.getHours() + ':'
+		                   + date.getMinutes();
+		            return data + '<br/>'+params.marker
+		                   + params.seriesName+":"+params.value[1] + '<br/> ' 
+		                   + params.name+":"+params.value[2];
+		        }
+		    },
+		    toolbox: {
+		        show : true,
+		        feature : {
+		            mark : {show: true},
+		            dataView : {show: true, readOnly: false},
+		            restore : {show: true},
+		            saveAsImage : {show: true}
+		        }
+		    },
+		    dataZoom: {
+		        show: true,
+		        start : 70
+		    },
+		    legend : {
+		        data : ['比例值']
+		    },
+		    grid: {
+		        y2: 80
+		    },
+		    xAxis : [
+		        {
+		            type : 'time',
+		            splitNumber:10
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value'
+		        }
+		    ],
+		    series : [
+		        {
+		            name: '比例值',
+		            type: 'line',
+		            showAllSymbol: true,
+		            symbolSize: function (value){
+		                return Math.round(value[2]/10) + 2;
+		            },
+		            data: (function () {
+		                var d = [];
+		                var len = 0;
+		                var now = new Date();
+		                var value;
+		                while (len++ < 200) {
+		                    d.push([
+		                        new Date(2014, 9, 1, 0, len * 10000),
+		                        (Math.random()*30).toFixed(2) - 0,
+		                        (Math.random()*100).toFixed(2) - 0
+		                    ]);
+		                }
+		                return d;
+		            })()
+		        }
+		    ]
+		};
+                    
+		mychar.setOption(option);
+	</script>
+</body>
+</html>
